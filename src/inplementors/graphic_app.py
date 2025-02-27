@@ -34,7 +34,11 @@ class GUI:
         print(self.player_board.get_points(self.name_player))
         time.sleep(2)
         dpg.delete_item('_')
+
     def login(self):
+        self.player_board.load()
+        for name_player in self.player_board.points_board:
+            dpg.add_text(self.player_board.points_board, parent='leaders')
         self.name_player = dpg.get_value(item='input_name')
         dpg.set_value(item='name_player', value=self.name_player)
         dpg.delete_item('login_group')
@@ -65,9 +69,9 @@ class GUI:
                         dpg.add_button(label='save', callback=self.save_game)
                         dpg.hide_item(item='app_group')
 
-                with dpg.tab(label='leaders'):
+                with dpg.tab(label='leaders', tag='leaders'):
                         dpg.add_text(default_value='list of records')
-                        leader_board = self.player_board.load()
+
 
         dpg.setup_dearpygui()
         dpg.set_primary_window(window="main", value=True)

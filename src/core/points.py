@@ -4,7 +4,8 @@ from abc import ABC, abstractmethod
 class Points(ABC):
     def __init__(self):
         self.points_board = {
-            # "имя пользователя": 0
+
+
                 }
     def plus_points(self, user_name):
         self.points_board[user_name] += 1
