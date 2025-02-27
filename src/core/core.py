@@ -22,7 +22,7 @@ def calculate(example):
     return correct_answer
 
 def check_answer(user_answer, correct_answer):
-    if user_answer == correct_answer:
+    if round(float(user_answer), 2) == round(correct_answer, 2):
         return True
     else:
         return False

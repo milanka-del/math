@@ -15,6 +15,9 @@ class Points(ABC):
 
     def add_player(self, user_name):
         self.points_board[user_name] = 0
+    @abstractmethod
+    def load(self):
+        ...
 
     @abstractmethod
     def save(self):
